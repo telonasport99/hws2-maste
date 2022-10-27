@@ -23,7 +23,7 @@ export type AffairType = {
     name: string // need to fix any
     priority: AffairPriorityType
 }
-export type FilterType = 'all' | AffairPriorityType
+export type FilterType = 'all' | 'high' | 'low' | 'middle'
 
 // constants
 const defaultAffairs: Array<AffairType> = [ // need to fix any
