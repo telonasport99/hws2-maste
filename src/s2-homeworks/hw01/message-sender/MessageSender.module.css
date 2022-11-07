@@ -9,21 +9,21 @@
     padding: 10px;
     box-sizing: border-box;
     border-radius: 20px;
-    border:transparent;
+    border: transparent;
     background-color: whitesmoke;
 }
 
 .button {
-width: 10%;
+    width: 10%;
     padding: 5px;
     border-radius: 20px;
-    border:transparent;
+    border: transparent;
     background-color: #0066cc;
     color: white;
 }
 
 .button:hover {
-background-color: dodgerblue;
+    background-color: dodgerblue;
     color: black;
 }
 .button:active {

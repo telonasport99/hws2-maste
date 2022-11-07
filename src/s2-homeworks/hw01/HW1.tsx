@@ -15,15 +15,15 @@ import avatar from './avatar.png'
 
 // нужно создать правильный тип вместо any
 export type MessageType = {
-        id:number
-        user:{
-            avatar:string
-            name:string
-        }
-        message:{
-            text:string
-            time:string
-        }
+    id: number,
+    user: {
+        avatar: string, // можно менять
+        name: string,  // можно менять
+    },
+    message: {
+        text: string, // можно менять
+        time: string, // можно менять
+    },
 }
 
 // структуру объекта не менять
@@ -35,7 +35,7 @@ export const message0: MessageType = {
     },
     message: {
         text: 'some textsome textsome textsome textsome textsome textsome text', // можно менять
-        time: '22:00', // можно менять
+        time: '22:01', // можно менять
     },
 }
 export const friendMessage0: MessageType = {
@@ -54,6 +54,7 @@ const HW1 = () => {
     return (
         <div id={'hw1'}>
             <div className={s2.hwTitle}>Homework #1</div>
+            <hr/>
             <div className={s2.hw}>
                 {/*проверка отображения (не менять)*/}
                 <div>
