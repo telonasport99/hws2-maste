@@ -5,19 +5,33 @@
 
 .input {
     margin: 5px;
+    background: burlywood;
+    color: darkgray;
 }
 
 .inputWrapper {
+    padding: 10px;
 }
 
 .superInput {
 }
 
 .errorInput {
+    margin: 10px;
+    background: burlywood;
+    color: #cc0000;
+    border: 2px solid red;
 }
 
 .errorInput:focus {
+    outline: none;
+    background: red;
+    color: #cc0000;
+    border: 2px solid palevioletred;
 }
 
 .error {
+    color: palevioletred;
+    height: 21px;
+    margin-left:10px ;
 }
