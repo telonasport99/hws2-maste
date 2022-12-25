@@ -1,8 +1,14 @@
 .container {
+    boxShadow: none ;
+
 }
 
 .wrapper {
+    boxShadow: none ;
+
 }
 
 .number {
+    boxShadow: none ;
+
 }
