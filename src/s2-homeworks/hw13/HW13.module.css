@@ -1,6 +1,7 @@
 .buttonsContainer {
+    display: flex;
+    gap: 50px;
 }
-
 .responseContainer {
 }
 
