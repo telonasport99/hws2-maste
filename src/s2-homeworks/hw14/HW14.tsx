@@ -1,3 +1,4 @@
+
 import React, {useEffect, useState} from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW14.module.css'
@@ -35,7 +36,10 @@ const HW14 = () => {
         getTechs(value)
             .then((res) => {
                 // делает студент
-
+                if(res){
+                    setTechs(res.data.techs)
+                    setLoading(false)
+                }
                 // сохранить пришедшие данные
 
                 //
@@ -45,7 +49,9 @@ const HW14 = () => {
     const onChangeText = (value: string) => {
         setFind(value)
         // делает студент
-
+        const newF: {f?: string} = value ?  {f: value} : {}
+        const {f, ...restQueries} =  Object.fromEntries(searchParams)
+        setSearchParams({...newF, ...restQueries})
         // добавить/заменить значение в квери урла
         // setSearchParams(
 
