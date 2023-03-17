@@ -5,6 +5,7 @@ import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
 import {useSearchParams} from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
+import LinearProgress from '@mui/material/LinearProgress';
 
 /*
 * 1 - дописать SuperPagination
@@ -42,7 +43,7 @@ const HW15 = () => {
     const [sort, setSort] = useState('')
     const [page, setPage] = useState(1)
     const [count, setCount] = useState(4)
-    const [idLoading, setLoading] = useState(false)
+    const [isLoading, setLoading] = useState(false)
     const [totalCount, setTotalCount] = useState(100)
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
@@ -51,6 +52,7 @@ const HW15 = () => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
+                console.log(res)
                 // делает студент
                 if (res) {
                     setTotalCount(res.data.totalCount)
@@ -71,21 +73,28 @@ const HW15 = () => {
         // setCount(
         setCount(newCount)
         // sendQuery(
-        sendQuery({page:newPage,count:newCount})
-        // setSearchParams(
+        sendQuery({page: newPage, count: newCount})
+        // setSearchParams()
         const newFind: { page?: string, count?: string } = page ? {page: '' + newPage, count: '' + newCount} : {}
         const {find, ...restQueries} = Object.fromEntries(searchParams)
         setSearchParams({...newFind, ...restQueries})
-        //
+
     }
 
     const onChangeSort = (newSort: string) => {
+        // делает студент
+
+        // setSort()
         setSort(newSort)
+        // setPage(1) // при сортировке сбрасывать на 1 страницу
         setPage(1)
+        // sendQuery
         sendQuery({page, count, sort: newSort})
+        // setSearchParams(
         const newFind: {sort?:string} = sort ? {sort:newSort} : {}
         const {find, ...restQueries} = Object.fromEntries(searchParams)
         setSearchParams({...newFind, ...restQueries})
+        //
     }
 
     useEffect(() => {
@@ -112,7 +121,8 @@ const HW15 = () => {
             <div className={s2.hwTitle}>Homework #15</div>
 
             <div className={s2.hw}>
-                {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
+                {isLoading && <LinearProgress/>}
+                {isLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
 
                 <SuperPagination
                     page={page}
@@ -123,12 +133,12 @@ const HW15 = () => {
 
                 <div className={s.rowHeader}>
                     <div className={s.techHeader}>
-                        tech
+                        Tech
                         <SuperSort sort={sort} value={'tech'} onChange={onChangeSort}/>
                     </div>
 
                     <div className={s.developerHeader}>
-                        developer
+                        Developer
                         <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
                     </div>
                 </div>
