@@ -17,7 +17,7 @@ export const Header: FC<PropsType> = ({handleOpen}) => {
         currentPath === PATH.PRE_JUNIOR
             ? 'Pre-junior'
             : currentPath === PATH.JUNIOR
-                ? 'Junior'
+                ? 'lol'
                 : currentPath === PATH.JUNIOR_PLUS
                     ? 'Junior Plus'
                     : 'Error'
